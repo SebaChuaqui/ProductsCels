@@ -6,18 +6,18 @@ import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import com.example.productscels.pojos.DetailsItem
-import com.example.productscels.pojos.ProductsItem
+import com.example.productscels.retrofit.Details
 
 @Dao
 interface DetailsDao {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insertAllDetails(mProducts: List<DetailsItem>)
+    suspend fun insertAllDetails(mProducts: Details)
 
     @Query("SELECT * FROM products_table")
     fun getAllDataDetails(): LiveData<List<DetailsItem>>
 
     @Query("SELECT * FROM products_table WHERE id=:mID")
-    fun getOne(mID: Int): LiveData<DetailsItem>
+    fun getOneDetails(mID: Int): LiveData<DetailsItem>
 
 }
