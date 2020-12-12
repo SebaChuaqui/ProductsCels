@@ -64,7 +64,7 @@ class Repository (private val mProductsDao: ProductsDao, private val mDetailsDao
         })
     }
 
-    fun getOne(mId: Int): LiveData<DetailsItem> {
+    fun getOneDetails(mId: Int): LiveData<DetailsItem> {
         return mDetailsDao.getOneDetails(mId)
     }
 
