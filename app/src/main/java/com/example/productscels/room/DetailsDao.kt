@@ -19,5 +19,5 @@ interface DetailsDao {
 
     @Query("SELECT * FROM products_table WHERE id=:mID")
     fun getOne(mID: Int): LiveData<DetailsItem>
-    
+
 }
