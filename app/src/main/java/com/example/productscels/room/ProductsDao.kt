@@ -12,7 +12,7 @@ import com.example.productscels.retrofit.Products
 interface ProductsDao {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insertAllProducts(mProducts: Products)
+    suspend fun insertAllProducts(mProducts: ProductsItem)
 
     @Query("SELECT * FROM products_table")
     fun getAllDataProducts(): LiveData<List<ProductsItem>>

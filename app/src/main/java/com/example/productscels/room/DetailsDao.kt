@@ -12,12 +12,12 @@ import com.example.productscels.retrofit.Details
 interface DetailsDao {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insertAllDetails(mProducts: Details)
+    suspend fun insertAllDetails(mProducts: DetailsItem)
 
-    @Query("SELECT * FROM products_table")
+    @Query("SELECT * FROM details_table")
     fun getAllDataDetails(): LiveData<List<DetailsItem>>
 
-    @Query("SELECT * FROM products_table WHERE id=:mID")
+    @Query("SELECT * FROM details_table WHERE id=:mID")
     fun getOneDetails(mID: Int): LiveData<DetailsItem>
 
 }

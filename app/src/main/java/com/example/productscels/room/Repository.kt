@@ -3,6 +3,7 @@ package com.example.productscels.room
 import android.util.Log
 import androidx.lifecycle.LiveData
 import com.example.productscels.pojos.DetailsItem
+import com.example.productscels.pojos.ProductsItem
 import com.example.productscels.retrofit.Details
 import com.example.productscels.retrofit.Products
 import com.example.productscels.retrofit.RetrofitClient
@@ -27,7 +28,7 @@ class Repository (private val mProductsDao: ProductsDao, private val mDetailsDao
 
                     in 200..299 -> CoroutineScope(Dispatchers.IO).launch {
                         response.body()?.let {
-                            mProductsDao.insertAllProducts(it)
+                            mProductsDao.insertAllProducts(convert(it))
                         }
                     }
                     in 300..399 -> Log.d("ERROR 300",response.errorBody().toString())
@@ -66,6 +67,15 @@ class Repository (private val mProductsDao: ProductsDao, private val mDetailsDao
 
     fun getOneDetails(mId: Int): LiveData<DetailsItem> {
         return mDetailsDao.getOneDetails(mId)
+    }
+
+    fun convert(listFromNetwork: Products): ProductsItem{
+        val listMutable = mutableListOf<ProductsItem>()
+        listFromNetwork.map{
+            listMutable.add(ProductsItem(
+                it.
+            ))
+        }
     }
 
 }

@@ -2,6 +2,7 @@ package com.example.productscels.pojos
 
 
 import androidx.room.Entity
+import androidx.room.PrimaryKey
 import com.google.gson.annotations.SerializedName
 
 @Entity(tableName = "details_table")
@@ -10,6 +11,7 @@ data class DetailsItem(
     val credit: Boolean,
     @SerializedName("description")
     val description: String,
+    @PrimaryKey
     @SerializedName("id")
     val id: Int,
     @SerializedName("image")
