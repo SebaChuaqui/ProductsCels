@@ -28,7 +28,7 @@ class Repository (private val mProductsDao: ProductsDao, private val mDetailsDao
 
                     in 200..299 -> CoroutineScope(Dispatchers.IO).launch {
                         response.body()?.let {
-                            mProductsDao.insertAllProducts(convert(it))
+                            mProductsDao.insertAllProducts(it)
                         }
                     }
                     in 300..399 -> Log.d("ERROR 300",response.errorBody().toString())
@@ -69,13 +69,6 @@ class Repository (private val mProductsDao: ProductsDao, private val mDetailsDao
         return mDetailsDao.getOneDetails(mId)
     }
 
-    fun convert(listFromNetwork: Products): ProductsItem{
-        val listMutable = mutableListOf<ProductsItem>()
-        listFromNetwork.map{
-            listMutable.add(ProductsItem(
-                it.
-            ))
-        }
-    }
+
 
 }
