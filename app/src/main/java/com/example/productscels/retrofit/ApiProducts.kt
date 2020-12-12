@@ -6,9 +6,9 @@ import retrofit2.http.GET
 interface ApiProducts {
 
     @GET("products")
-    fun getDataFromApi(): Call<products>
+    fun getDataFromApi(): Call<Products>
 
 
     @GET("details/{id}")
-    fun getDataFromDetails(): Call<details>
+    fun getDataFromDetails(): Call<Details>
 }
