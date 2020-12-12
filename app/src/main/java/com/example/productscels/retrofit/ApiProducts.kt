@@ -1,7 +1,5 @@
 package com.example.productscels.retrofit
 
-import com.example.productscels.pojos.details
-import com.example.productscels.pojos.products
 import retrofit2.Call
 import retrofit2.http.GET
 
