@@ -1,17 +1,15 @@
 package com.example.productscels.pojos
+
+
+import androidx.room.Entity
 import com.google.gson.annotations.SerializedName
 
-data class details(
-    @SerializedName("credit")
-    val credit: Boolean,
-    @SerializedName("description")
-    val description: String,
+@Entity(tableName = "products_table")
+data class productsItem(
     @SerializedName("id")
     val id: Int,
     @SerializedName("image")
     val image: String,
-    @SerializedName("lastPrice")
-    val lastPrice: Int,
     @SerializedName("name")
     val name: String,
     @SerializedName("price")
